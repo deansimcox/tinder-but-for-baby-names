@@ -12,9 +12,11 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux'
 import { setShowGender } from '../redux/genderSlice'
+import { selectGender } from '../redux/selectors'
 
 const Navbar = () => {
   const dispatch = useDispatch()
+  const gender = useSelector(selectGender)
 
   return (
     <motion.nav
@@ -28,19 +30,25 @@ const Navbar = () => {
           <FontAwesomeIcon
             icon={faMars}
             size='2x'
-            className='text-white opacity-50 hover:cursor-pointer hover:opacity-75'
+            className={`${
+              gender === 'M' ? 'opacity-100' : 'opacity-50'
+            } text-white hover:cursor-pointer hover:opacity-75 `}
             onClick={() => dispatch(setShowGender('M'))}
           />
           <FontAwesomeIcon
             icon={faVenus}
             size='2x'
-            className='text-white opacity-50 mx-5 hover:cursor-pointer hover:opacity-75'
+            className={`${
+              gender === 'F' ? 'opacity-100' : 'opacity-50'
+            } text-white mx-5 hover:cursor-pointer hover:opacity-75 `}
             onClick={() => dispatch(setShowGender('F'))}
           />
           <FontAwesomeIcon
             icon={faMarsAndVenus}
             size='2x'
-            className='text-white opacity-50 hover:cursor-pointer hover:opacity-75'
+            className={`${
+              gender === '*' ? 'opacity-100' : 'opacity-50'
+            } text-white hover:cursor-pointer hover:opacity-75 `}
             onClick={() => dispatch(setShowGender('*'))}
           />
         </div>

@@ -8,14 +8,24 @@ export const nameApi = createApi({
   endpoints: (builder) => ({
     getNewName: builder.query({
       queryFn: async (gender) => {
-        const response = await supabase
-          .from('random_names')
-          .select('name')
-          .eq('sex', gender)
-          .limit(1)
-          .single()
+        if (gender === '*') {
+          const response = await supabase
+            .from('random_names')
+            .select('name')
+            .limit(1)
+            .single()
 
-        return { data: response.data.name }
+          return { data: response.data.name }
+        } else {
+          const response = await supabase
+            .from('random_names')
+            .select('name')
+            .eq('sex', gender)
+            .limit(1)
+            .single()
+
+          return { data: response.data.name }
+        }
       },
       providesTags: ['Name'],
     }),

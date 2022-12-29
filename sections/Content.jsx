@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 
-import { slideIn, fadeIn, rotateIn } from '../utils/motion'
+import { rotateIn } from '../utils/motion'
 
 import Namecard from '../components/Namecard'
 
