@@ -52,7 +52,7 @@ const Navbar = () => {
             onClick={() => dispatch(setShowGender('*'))}
           />
         </div>
-        <h2 className='text-white pr-[8rem]'>Find the name</h2>
+        <h2 className='text-white hidden md:block pr-[8rem]'>Find the name</h2>
         <img src='/menu.svg' alt='menu' className='' />
       </div>
     </motion.nav>

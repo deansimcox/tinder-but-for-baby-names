@@ -12,6 +12,7 @@ export const nameApi = createApi({
           const response = await supabase
             .from('random_names')
             .select('name')
+            .gte('number', 50)
             .limit(1)
             .single()
 
@@ -20,6 +21,7 @@ export const nameApi = createApi({
           const response = await supabase
             .from('random_names')
             .select('name')
+            .gte('number', 50)
             .eq('sex', gender)
             .limit(1)
             .single()
