@@ -9,7 +9,7 @@ const Footer = () => (
     variants={footerVariants}
     initial='hidden'
     whileInView='show'
-    className='py-8'
+    className='py:4 sm:py-8'
   >
     <div className='mx-20 flex flex-col gap-8'>
       <div className='flex flex-col max-h-100px'>
