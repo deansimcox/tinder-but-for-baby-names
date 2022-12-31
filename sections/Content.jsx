@@ -12,7 +12,7 @@ const Content = () => {
       variants={rotateIn('right')}
       initial='hidden'
       whileInView='show'
-      className='w-full h-[70vh] flex justify-center items-center'
+      className='w-full h-[70%] sm:h-[70vh] flex justify-center items-center'
     >
       <Namecard />
     </motion.div>

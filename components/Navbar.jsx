@@ -23,7 +23,7 @@ const Navbar = () => {
       variants={navVariants}
       initial='hidden'
       whileInView='show'
-      className='pt-10 pb-5 sm:py-10 mx-20'
+      className='pt-8 pb-4 sm:py-10 mx-20'
     >
       <div className='flex justify-between'>
         <div>

@@ -28,6 +28,8 @@ a {
 }
 
 .height {
-  max-height: 100vh;
-  max-height: -webkit-fill-available;
+  height: 100vh;
+  height: -moz-available;
+  height: -webkit-fill-available;
+  height: stretch;
 }
