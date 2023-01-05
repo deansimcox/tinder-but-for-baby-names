@@ -6,15 +6,11 @@ import { motion } from "framer-motion";
 
 import { navVariants } from "../utils/motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMarsAndVenus,
-  faMars,
-  faVenus,
-} from "@fortawesome/free-solid-svg-icons";
-import useGenderContext from "../contexts/GenderContext";
+import { faMars, faVenus } from "@fortawesome/free-solid-svg-icons";
+import useAppContext from "../contexts/GenderContext";
 
 const Navbar = () => {
-  const genderContext = useGenderContext();
+  const genderContext = useAppContext();
 
   return (
     <motion.nav

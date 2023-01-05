@@ -13,8 +13,20 @@ const fetchName = async (gender: Gender) => {
   return response.data;
 };
 
-const useFetchName = (gender: Gender) => {
+const getTotalNamesAmount = async () => {
+  const response = await supabase.from("amount_of_baby_names").select("*");
+  return response.data;
+};
+
+const useFetchRandomName = (gender: Gender) => {
   return useQuery(["names", gender], () => fetchName(gender));
 };
 
-export { useFetchName };
+const useGetTotalNamesAmount = () => {
+  return useQuery(["namesAmount"], async () => {
+    const response = await getTotalNamesAmount();
+    return response[0].count;
+  });
+};
+
+export { useFetchRandomName, useGetTotalNamesAmount };

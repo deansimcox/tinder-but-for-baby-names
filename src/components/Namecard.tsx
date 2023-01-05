@@ -4,12 +4,12 @@ import React from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useFetchName } from "../store/api";
-import useGenderContext from "../contexts/GenderContext";
+import { useFetchRandomName } from "../store/api";
+import useAppContext from "../contexts/GenderContext";
 
 const Namecard = () => {
-  const genderContext = useGenderContext();
-  const nameResponse = useFetchName(genderContext.gender);
+  const appContext = useAppContext();
+  const nameResponse = useFetchRandomName(appContext.gender);
   const randomName = nameResponse.data?.name;
 
   const getNewName = () => {

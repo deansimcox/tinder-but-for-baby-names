@@ -1,28 +1,37 @@
 import * as React from "react";
+import { useGetTotalNamesAmount } from "../store/api";
 
 export type Gender = "boy" | "girl";
 
-interface GenderContextProps {
+interface AppContextProps {
   gender: Gender;
+  totalNames: number;
   updateGender: (gender: Gender) => void;
 }
 
-const GenderContext = React.createContext<GenderContextProps | undefined>(
-  undefined
-);
-GenderContext.displayName = "GenderContext";
+const AppContext = React.createContext<AppContextProps | undefined>(undefined);
+AppContext.displayName = "AppContext";
 
 export const GenderProvider = ({ children }: { children: React.ReactNode }) => {
   const [gender, updateGender] = React.useState<Gender>("boy");
+  const namesAmountResponse = useGetTotalNamesAmount();
+
+  const contextValue = React.useMemo(
+    () => ({
+      gender,
+      totalNames: namesAmountResponse.data,
+      updateGender,
+    }),
+    [namesAmountResponse.data]
+  );
+
   return (
-    <GenderContext.Provider value={{ gender, updateGender }}>
-      {children}
-    </GenderContext.Provider>
+    <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
   );
 };
 
-export default function useGenderContext() {
-  const context = React.useContext(GenderContext);
+export default function useAppContext() {
+  const context = React.useContext(AppContext);
 
   if (context === undefined) {
     throw new Error(
