@@ -4,7 +4,8 @@ import Head from "next/head";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Content from "../sections/Content";
+import Content from "../components/Content";
+import Deck from "../components/Tinder/Deck";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       </Head>
       <div className="height relative overflow-hidden">
         <Navbar />
+        <Deck />
         <Content />
         <Footer />
       </div>
