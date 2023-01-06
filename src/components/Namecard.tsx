@@ -12,6 +12,8 @@ const Namecard = () => {
   const nameResponse = useFetchRandomName(appContext.gender);
   const randomName = nameResponse.data?.name;
 
+  console.log("appContext", appContext);
+
   const getNewName = () => {
     nameResponse.refetch();
   };

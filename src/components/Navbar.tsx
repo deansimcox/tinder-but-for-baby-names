@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { navVariants } from "../utils/motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMars, faVenus } from "@fortawesome/free-solid-svg-icons";
-import useAppContext from "../contexts/GenderContext";
+import useAppContext, { Gender } from "../contexts/GenderContext";
 
 const Navbar = () => {
   const genderContext = useAppContext();
@@ -25,17 +25,17 @@ const Navbar = () => {
             icon={faMars}
             size="2x"
             className={`${
-              genderContext.gender === "boy" ? "opacity-100" : "opacity-50"
+              genderContext.gender === Gender.m ? "opacity-100" : "opacity-50"
             } text-white hover:cursor-pointer hover:opacity-75 `}
-            onClick={() => genderContext.updateGender("boy")}
+            onClick={() => genderContext.updateGender(Gender.m)}
           />
           <FontAwesomeIcon
             icon={faVenus}
             size="2x"
             className={`${
-              genderContext.gender === "girl" ? "opacity-100" : "opacity-50"
+              genderContext.gender === Gender.f ? "opacity-100" : "opacity-50"
             } text-white mx-5 hover:cursor-pointer hover:opacity-75 `}
-            onClick={() => genderContext.updateGender("girl")}
+            onClick={() => genderContext.updateGender(Gender.f)}
           />
         </div>
         <h2 className="text-white hidden md:block pr-[8rem]">Find the name</h2>
